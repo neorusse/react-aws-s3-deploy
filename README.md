@@ -1,4 +1,4 @@
-# React App Deploment to AWS S
+# React App Deploment to AWS S3
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
