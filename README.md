@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React App Deploment to AWS S
 
-## Available Scripts
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-In the project directory, you can run:
+Deployment of a Single Page React Application to AWS S3 for hosting. S3 Resource was provisioned using AWS CloudFormation.
 
-### `yarn start`
+### Dependencies
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### 1. AWS Account
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You would require to have an AWS account to be able to build cloud infrastructure.
 
-### `yarn test`
+##### 2. VS Code Editor
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+An editor would be helpful to visualize the image as well as code. Download the VS Code editor [here](https://code.visualstudio.com/download).
 
-### `yarn build`
+### Technology/Tools
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 1. Jenkins
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+[React](https://reactjs.org/) is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 2. Jenkins
 
-### `yarn eject`
+[Jenkins](https://www.jenkins.io/) is a free and open source automation server. It helps automate the parts of software development related to building, testing, and deploying, facilitating continuous integration and continuous delivery. It is a server-based system that runs in servlet containers such as Apache Tomcat.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### 3. AWS CloudFormation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[AWS CloudFormation](https://aws.amazon.com/cloudformation/) provides a common language for you to model and provision AWS and third party application resources in your cloud environment. AWS CloudFormation allows you to use programming languages or a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all regions and accounts. This gives you a single source of truth for your AWS and third party resources.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To create the AWS S3 Buckect, run
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+$ ./<create-aws-s3-script-file> <s3-bucket-name> <cloudformation-yaml-file> <json-params-file-for-cloudformation-yaml-file>
+```
 
-## Learn More
+To delete the AWS S3 Buckect, run
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+$ ./<delete-aws-s3-script-file> <s3-bucket-name>
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### License
 
-### Code Splitting
+[MIT](https://opensource.org/licenses/MIT)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Author
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Russell Nyorere](https://neorusse.github.io/)
