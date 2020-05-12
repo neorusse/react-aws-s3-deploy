@@ -1,0 +1,50 @@
+Description: >
+  Russell Nyorere | React App
+  AWS-CloudFormation script to create a S3 bucket for deploying a high-availability React App.
+
+Parameters:
+  EnvironmentName:
+    Description: An environment name that will be prefixed to resource names.
+    Type: String
+    Default: EcodReactApp
+
+  BucketName:
+    Description: Bucket name.
+    Type: String
+    Default: ecod-react-app
+
+############################### Resources #################################
+
+Resources:
+  # Create an S3 Bucket that serves a static website (i.e. React app)
+  MyBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      AccessControl: PublicRead # visitors need to be able to access the sie
+      WebsiteConfiguration: # this makes the S3 Bucket a static website/app
+        IndexDocument: index.html # default object served when visiting S3 domain
+        ErrorDocument: index.html # just send to app, let React handle errors and routing
+      DeletionPolicy: Delete
+
+  # Add a Bucket Policy that lets public visitors access the web app
+  MyBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref MyBucket # attach to bucket being created
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement: # lets the public access/view the contents of your Bucket, i.e. web app
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Action: s3:*
+            Resource: !Join ["", ["arn:aws:s3:::", !Ref "MyBucket", "/*"]]
+            Principal:
+              AWS: "*"
+
+############################### Outputs #################################
+
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt MyBucket.WebsiteURL
+    Description: URL for website hosted on S3
