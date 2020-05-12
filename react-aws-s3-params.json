@@ -1,0 +1,10 @@
+[
+	{
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "EcodReactApp"
+	},
+	{
+		"ParameterKey": "BucketName",
+		"ParameterValue": "ecod-react-app"
+	}
+]
